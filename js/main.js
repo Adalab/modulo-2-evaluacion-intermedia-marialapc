@@ -15,16 +15,28 @@ function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
    }
 
-   const computer = () => {
-    const randomNUmber = getRandomNumber(6);
-    console.log(randomNUmber);
+   const computerSelection = () => {
+    const randomNumber = getRandomNumber(6);
+    console.log(randomNumber);
+}
+
+function gamerSelection() {
+    const selectValue = select.value;
+    console.log(selectValue);
+  }
+
+if (computerSelection > gamerSelection) {
+    result.innerHTML = "Ha ganado el Ejército del Mal! Vuelve a Intentarlo."
+
+
 }
 
 
 //funcion manejadora
 function handleClick(e) {
     e.preventDefault();
-    computer();
+    computerSelection();
+    gamerSelection();
 }
   
 //evento
