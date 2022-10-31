@@ -1,43 +1,45 @@
-'use strict'
-
+"use strict";
 
 //variables
-const btn = document.querySelector('.js-btn');
-const select = document.querySelector('.js-select');
-const result = document.querySelector('.js-result');
-
-
-
+const btn = document.querySelector(".js-btn");
+const select = document.querySelector(".js-select");
+const text = document.querySelector(".js-text");
 
 //funciones
 
 function getRandomNumber(max) {
-    return Math.ceil(Math.random() * max);
-   }
-
-   const computerSelection = () => {
-    const randomNumber = getRandomNumber(6);
-    console.log(randomNumber);
+  return Math.ceil(Math.random() * max);
 }
+
+const computerSelection = () => {
+  const randomNumber = getRandomNumber(5);
+  console.log(randomNumber);
+};
 
 function gamerSelection() {
-    const selectValue = select.value;
-    console.log(selectValue);
-  }
+  const selectValue = select.value;
+  console.log(selectValue);
 
-if (computerSelection > gamerSelection) {
-    result.innerHTML = "Ha ganado el Ejército del Mal! Vuelve a Intentarlo."
-
-
-}
+};
 
 
 //funcion manejadora
 function handleClick(e) {
-    e.preventDefault();
-    computerSelection();
-    gamerSelection();
-}
+  e.preventDefault();
+  computerSelection();
+  gamerSelection();
   
+  if (computerSelection > gamerSelection) {
+    text.innerHTML =  "Ha ganado el Ejército del Mal! Vuelve a Intentarlo.";
+    console.log(" Ha ganado el mal");
+  } else if (computerSelection < gamerSelection) {
+    text.innerHTML = "Ha ganado el Ejército del Bien! Enhorabuena.";
+    console.log(" Ha ganado el bien");
+  } else if (computerSelection === gamerSelection) {
+    text.innerHTML = "Empate.";
+    console.log("empate");
+  }
+}
+
 //evento
-   btn.addEventListener('click', handleClick);
+btn.addEventListener("click", handleClick);
