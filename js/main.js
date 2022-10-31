@@ -5,43 +5,59 @@ const btn = document.querySelector(".js-btn");
 const select = document.querySelector(".js-select");
 const text = document.querySelector(".js-text");
 
-//funciones
 
+//funcion random number
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
-const computerSelection = () => {
+//raza mala
+
+function getComputerSelection(){       
   const randomNumber = getRandomNumber(5);
-  console.log(randomNumber);
-  return randomNumber;
+  let result = 0;                     
+  if (randomNumber === 1 || randomNumber === 2 || randomNumber === 3){
+    result = 2;
+  } else if  (randomNumber ===4){
+    result = 3;
+  } else{
+    result = 5;
+  }
+
+  return result;   ///retorna la fuerza de la raza
 };
 
-function gamerSelection() {
-  const selectValue = select.value;
-  console.log(selectValue);
-  return selectValue;
+//raza buena
 
+function getGamerSelection() {
+  return parseInt(select.value)
 };
+
+
+//comparacion de las constantes finales
+function compare( gamer, computer){
+if (gamer > computer){
+  text.innerHTML = "¡Ha ganado el Ejército del Bien! Enhorabuena."
+} else if (gamer < computer){
+  text.innerHTML = "¡Ha ganado el Ejército del mal! Vuelve a intentarlo."
+} else{
+  text.innerHTML = "Empate"
+}
+};
+
 
 //funcion manejadora
 function handleClick(e) {
   e.preventDefault();
-  computerSelection();
-  gamerSelection();
-
-  
-  if (randomNumber > selectValue) {
-    text.innerHTML =  "Ha ganado el Ejército del Mal! Vuelve a Intentarlo.";
-    console.log(" Ha ganado el mal");
-  } else if (randomNumber < selectValue) {
-    text.innerHTML = "Ha ganado el Ejército del Bien! Enhorabuena.";
-    console.log(" Ha ganado el bien");
-  } else if (randomNumber === selectValue) {
-    text.innerHTML = "Empate.";
-    console.log("empate");
-  }
+  const computer = getComputerSelection(); 
+  const gamer = getGamerSelection();    
+  console.log(gamer);
+  console.log (computer);
+  compare( gamer, computer)
+ 
 }
+
+
 
 //evento
 btn.addEventListener("click", handleClick);
