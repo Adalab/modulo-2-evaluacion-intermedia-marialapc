@@ -14,28 +14,30 @@ function getRandomNumber(max) {
 const computerSelection = () => {
   const randomNumber = getRandomNumber(5);
   console.log(randomNumber);
+  return randomNumber;
 };
 
 function gamerSelection() {
   const selectValue = select.value;
   console.log(selectValue);
+  return selectValue;
 
 };
-
 
 //funcion manejadora
 function handleClick(e) {
   e.preventDefault();
   computerSelection();
   gamerSelection();
+
   
-  if (computerSelection > gamerSelection) {
+  if (randomNumber > selectValue) {
     text.innerHTML =  "Ha ganado el Ejército del Mal! Vuelve a Intentarlo.";
     console.log(" Ha ganado el mal");
-  } else if (computerSelection < gamerSelection) {
+  } else if (randomNumber < selectValue) {
     text.innerHTML = "Ha ganado el Ejército del Bien! Enhorabuena.";
     console.log(" Ha ganado el bien");
-  } else if (computerSelection === gamerSelection) {
+  } else if (randomNumber === selectValue) {
     text.innerHTML = "Empate.";
     console.log("empate");
   }
