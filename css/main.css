@@ -1,9 +1,63 @@
+.main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    background-image: url(../images/painting.jpg);
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: 15%;
+    background-color: rgb(19, 9, 1);
+    color: white;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    gap: 20px;
+
+}
+
+
+
 .btn{
     background-color: rgb(248, 140, 140);
 }
+
+
+
+
 .title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
     color: rgb(248, 140, 140);
+    margin-top: 60px;
+    margin-left: 450px;
 }
+
+.scores{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border: 1px solid;
+    border-color: rgb(248, 140, 140); 
+    width: 400px;
+    margin-left: 450px;
+}
+
+.scores_title{
+    margin-left: 450px;
+}
+
+.text{
+    margin-left: 450px;
+}
+
+.select{
+    margin-left: 450px;
+}
+
+
+
+
 
 .hidden{
     display: none;
