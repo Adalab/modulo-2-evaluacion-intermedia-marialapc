@@ -58,6 +58,7 @@ function handleClick(e) {
   compare( gamer, computer)
   //bonus
   renderScore();
+  gameOver();
  
 }
 
@@ -68,7 +69,6 @@ function handleClick(e) {
 
 let gamerPoints = 0;
 let computerPoints = 0;
-let moves = 0;
 
 const gamerPointsElement = document.querySelector (".js-counter-gamer")
 const computerPointsElement = document.querySelector (".js-counter-computer")
@@ -78,8 +78,40 @@ function renderScore(){
   computerPointsElement.innerHTML = `Computer: ${computerPoints}`;
 };
 
+//reiniciar cuando llegue a 10 y cambiar el botón
+const resetBtn = document.querySelector(".js-reset-btn")
+let moves = 0;
 
+function gameOver() {
+  moves++;
+  if(moves === 10) {
+    btn.classList.add("hidden");
+    resetBtn.classList.remove("hidden");
+// mostrar el ganador
+if (gamerPoints > computerPoints) {
+  text.innerHTML = "¡Has ganado el juego!"
+} else if (gamerPoints < computerPoints) {  
+  text.innerHTML = "¡Has perdido el juego!"
+  } else {
+    text.innerHTML = "¡Empate!"
+  }
+}
+}
+// resetear y volver a 0
+function handleReset(event){
+  event.preventDefault();
+  btn.classList.remove("hidden");
+  resetBtn.classList.add("hidden");
+  gamerPoints = 0;
+  computerPoints = 0;
+  moves = 0;
+  gamerPointsElement.innerHTML =  `Jugador: ${gamerPoints}`;
+  computerPointsElement.innerHTML = `Computer: ${computerPoints}`;
+  text.innerHTML = "¡Comienza la batalla!";
+
+}
 
 
 //evento
 btn.addEventListener("click", handleClick);
+resetBtn.addEventListener("click", handleReset); //bonus

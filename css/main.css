@@ -4,3 +4,7 @@
 .title{
     color: rgb(248, 140, 140);
 }
+
+.hidden{
+    display: none;
+}
