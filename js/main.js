@@ -38,8 +38,10 @@ function getGamerSelection() {
 function compare( gamer, computer){
 if (gamer > computer){
   text.innerHTML = "¡Ha ganado el Ejército del Bien! Enhorabuena."
+  gamerPoints++; //bonus
 } else if (gamer < computer){
   text.innerHTML = "¡Ha ganado el Ejército del mal! Vuelve a intentarlo."
+  computerPoints++;//bonus
 } else{
   text.innerHTML = "Empate"
 }
@@ -54,8 +56,28 @@ function handleClick(e) {
   console.log(gamer);
   console.log (computer);
   compare( gamer, computer)
+  //bonus
+  renderScore();
  
 }
+
+
+//BONUS
+
+//contador
+
+let gamerPoints = 0;
+let computerPoints = 0;
+let moves = 0;
+
+const gamerPointsElement = document.querySelector (".js-counter-gamer")
+const computerPointsElement = document.querySelector (".js-counter-computer")
+
+function renderScore(){
+  gamerPointsElement.innerHTML =  `Jugador: ${gamerPoints}`;
+  computerPointsElement.innerHTML = `Computer: ${computerPoints}`;
+};
+
 
 
 
